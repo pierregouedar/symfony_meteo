@@ -39,4 +39,38 @@ class WMOInterpretor
 
         return $descriptions[$code];
     }
+
+    public static function getIcon($code){
+        $descriptions = [
+            0 => '<span class="material-symbols-outlined">sunny</span>',
+            1 => '<span class="material-symbols-outlined">partly_cloudy_day</span>',
+            2 => '<span class="material-symbols-outlined">partly_cloudy_day</span>',
+            3 => '<span class="material-symbols-outlined">cloud</span>',
+            45 => '<span class="material-symbols-outlined">foggy</span>',
+            48 => '<span class="material-symbols-outlined">foggy</span><span class="material-symbols-outlined">severe_cold</span>',
+            51 => '<span class="material-symbols-outlined">rainy_light</span>',
+            53 => '<span class="material-symbols-outlined">rainy_light</span>',
+            55 => '<span class="material-symbols-outlined">rainy_heavy</span>',
+            56 => '<span class="material-symbols-outlined">rainy_light</span><span class="material-symbols-outlined">severe_cold</span>',
+            57 => '<span class="material-symbols-outlined">rainy_heavy</span><span class="material-symbols-outlined">severe_cold</span>',
+            61 => '<span class="material-symbols-outlined">rainy</span>',
+            63 => '<span class="material-symbols-outlined">rainy</span>',
+            65 => '<span class="material-symbols-outlined">rainy</span>',
+            66 => '<span class="material-symbols-outlined">rainy</span><span class="material-symbols-outlined">severe_cold</span>',
+            67 => '<span class="material-symbols-outlined">rainy</span><span class="material-symbols-outlined">severe_cold</span>',
+            71 => '<span class="material-symbols-outlined">snowing</span><span class="material-symbols-outlined">weather_snowy</span>',
+            73 => '<span class="material-symbols-outlined">snowing</span><span class="material-symbols-outlined">weather_snowy</span>',
+            75 => '<span class="material-symbols-outlined">snowing_heavy</span><span class="material-symbols-outlined">weather_snowy</span>',
+            77 => '<span class="material-symbols-outlined">grain</span><span class="material-symbols-outlined">weather_snowy</span>',
+            80 => '<span class="material-symbols-outlined">rainy</span><span class="material-symbols-outlined">schedule</span>',
+            81 => '<span class="material-symbols-outlined">rainy</span><span class="material-symbols-outlined">schedule</span>',
+            82 => '<span class="material-symbols-outlined">rainy</span><span class="material-symbols-outlined">schedule</span>',
+            85 => '<span class="material-symbols-outlined">weather_snowy</span><span class="material-symbols-outlined">schedule</span>',
+            86 => '<span class="material-symbols-outlined">weather_snowy</span><span class="material-symbols-outlined">schedule</span>',
+            95 => '<span class="material-symbols-outlined">thunderstorm</span>',
+            96 => '<span class="material-symbols-outlined">thunderstorm</span><span class="material-symbols-outlined">weather_hail</span>',
+            99 => '<span class="material-symbols-outlined">thunderstorm</span><span class="material-symbols-outlined">weather_hail</span>',
+        ];
+        return $descriptions[$code];
+    }
 }
