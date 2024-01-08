@@ -1,0 +1,36 @@
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    </div>
+    <div class="carousel-inner">
+{% for i in 0..6 %}
+    <div class="carousel-item {% if i == 0 %}active{% endif %} text-center mb-5">
+        <h1 class="mb-3">Prévisions du : {{ weather['daily']['time'][i] }}</h1>
+        <p>Temps prévu : {{ forecastWeatherDescriptions[i] }}</p>
+        <p>Température minimale : {{ weather['daily']['temperature_2m_min'][i] }}{{ weather['daily_units']['temperature_2m_min'] }}</p>
+        <p>Température maximale : {{ weather['daily']['temperature_2m_max'][i] }}{{ weather['daily_units']['temperature_2m_max'] }}</p>
+        <p>Heure du levé de soleil : {{ weather['daily']['sunrise'][i]|date_modify("+1 hour")|date('H:i', '+01:00') }}</p>
+        <p>Heure du couché de soleil : {{ weather['daily']['sunset'][i]|date_modify("+1 hour")|date('H:i', '+01:00') }}</p>
+        <p>Indice d'UV maximum : {{ weather['daily']['uv_index_max'][i] }}</p>
+        <p>Nombre d'heure de précipitations : {{ weather['daily']['precipitation_hours'][i]}}{{ weather['daily_units']['precipitation_hours'] }}</p>
+        <p>Probabilité de précipitations sur la journée : {{ weather['daily']['precipitation_probability_max'][i]}}{{ weather['daily_units']['precipitation_probability_max'] }}</p>
+        <p>Vitesse maximale du vent : {{ weather['daily']['wind_speed_10m_max'][i]}}{{ weather['daily_units']['wind_speed_10m_max'] }}</p>
+        <p>Orientation globale du vent : {{ weather['daily']['wind_direction_10m_dominant'][i]}}{{ weather['daily_units']['wind_direction_10m_dominant'] }}</p>
+    </div>
+{% endfor%}
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+</div>

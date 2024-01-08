@@ -1,0 +1,10 @@
+<div class="text-center">
+    <h2>Informations instantanées sur {{ locationLabel ?? 'Reims' }}</h2>
+    <p>(Position de l'emplacement : latitude : {{ latitude }}, longitude : {{ longitude }})</p>
+    <p>Heure de la dernière mise à jour : {{ currentWeatherContent['current']['time']|date_modify("+1 hour")|date('H:i')}}</p>
+    <p>Code météo (à changer pour trouver correspondance) : {{ weatherDescription }}</p>
+    <p>Température actuelle : {{ currentWeatherContent['current']['temperature_2m'] }}{{ currentWeatherContent['current_units']['temperature_2m'] }}</p>
+    <p>Vitesse moyenne du vent : {{ currentWeatherContent['current']['wind_speed_10m'] }}{{ currentWeatherContent['current_units']['wind_speed_10m'] }}</p>
+    <p>Direction du vent : {{ currentWeatherContent['current']['wind_direction_10m'] }}{{ currentWeatherContent['current_units']['wind_direction_10m'] }}</p>
+    <p>Taux d'humidité actuel : {{ currentWeatherContent['current']['relative_humidity_2m'] }}{{ currentWeatherContent['current_units']['relative_humidity_2m'] }}</p>
+</div>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1" datatype="html">
+                <source>street</source>
+                <target>Rue</target>
+            </trans-unit>
+            <trans-unit id="2" datatype="html">
+                <source>municipality</source>
+                <target>Municipalité</target>
+            </trans-unit>
+            <trans-unit id="3" datatype="html">
+                <source>housenumber</source>
+                <target>Adresse(numéro de maison)</target>
+            </trans-unit>
+            <trans-unit id="4" datatype="html">
+                <source>locality</source>
+                <target>Lieu-dit</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

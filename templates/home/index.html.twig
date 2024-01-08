@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 class="text-center mt-3">MétéoExpress</h1>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <form class="d-flex w-75" role="search" action="{{ path('app_address_find') }}">
+            <input class="form-control me-2" name="search" value="{{ search|default('') }}" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Rechercher</button>
+        </form>
+    {% elseif not is_granted('IS_AUTHENTICATED_FULLY')%}
+    <div class="text-center">
+        <h2>Vous souhaitez consulter la météo d'autres emplacement ?</h2>
+        <a class="btn btn-primary" href="{{ path('app_login') }}">Connectez-vous</a>
+        ou
+        <a class="btn btn-primary" href="{{ path('app_register') }}">Inscrivez-vous</a>
+    </div>
+    {% endif %}
+    {{ include('weather/_currentWeather.html.twig') }}
+{% endblock %}

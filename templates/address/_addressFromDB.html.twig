@@ -1,0 +1,17 @@
+{% for address in addresses %}
+    <div class="card" style="width: fit-content;">
+        <div class="card-body">
+            <h5 class="card-title">{{ address.type|trans}} : {{ address.housenumber ?? "" }}  {{ address.street ?? "" }} {{ address.postcode ?? "" }} {{ address.city ?? ""}}</h5>
+            <p class="card-text">Voici quelques informations supplémentaire sur cet emplacement :</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Code postal : {{ address.postcode}}</li>
+            <li class="list-group-item">Latitude : {{ address.latitude}}</li>
+            <li class="list-group-item">Longitude : {{ address.longitude}}</li>
+        </ul>
+        <div class="card-body">
+            <a href="{{ path('app_weather_index', {id:address.id}) }}" class="btn btn-primary card-link">Consultez la météo</a>
+            <a href="{{ path('app_address_remove', {id:address.id}) }}" class="btn btn-danger card-link">Supprimer cet emplacement de vos favoris</a>
+        </div>
+    </div>
+{% endfor %}
