@@ -4,5 +4,6 @@
 
 {% block body %}
     {% include 'weather/_currentWeather.html.twig' with {latitude:weather['latitude'],longitude:weather['longitude'], currentWeatherContent:weather, weatherDescription:currentWeatherDescription}%}
+    <h2 class="text-center mt-5 mb-3">Liste des prévisions météo sur 7 jours</h2>
     {% include 'weather/_forecastWeather.html.twig' with {weather:weather}%}
 {% endblock %}

@@ -11,10 +11,11 @@
     <div class="carousel-inner">
 {% for i in 0..6 %}
     <div class="carousel-item {% if i == 0 %}active{% endif %} text-center mb-5">
-        <h1 class="mb-3">Prévisions du : {{ weather['daily']['time'][i] }}</h1>
-        <p>Temps prévu : {{ forecastWeatherDescriptions[i] }}</p>
-        <p>Température minimale : {{ weather['daily']['temperature_2m_min'][i] }}{{ weather['daily_units']['temperature_2m_min'] }}</p>
-        <p>Température maximale : {{ weather['daily']['temperature_2m_max'][i] }}{{ weather['daily_units']['temperature_2m_max'] }}</p>
+        <p class="mb-3">Prévisions du : {{ weather['daily']['time'][i] }}</p>
+        <h1>Min : {{ weather['daily']['temperature_2m_min'][i] }}{{ weather['daily_units']['temperature_2m_min'] }} | Max : {{ weather['daily']['temperature_2m_max'][i] }}{{ weather['daily_units']['temperature_2m_max'] }}</h1>
+        {{ forecastWeatherIcon[i]|raw }}
+        <p>{{ forecastWeatherDescriptions[i] }}</p>
+
         <p>Heure du levé de soleil : {{ weather['daily']['sunrise'][i]|date_modify("+1 hour")|date('H:i', '+01:00') }}</p>
         <p>Heure du couché de soleil : {{ weather['daily']['sunset'][i]|date_modify("+1 hour")|date('H:i', '+01:00') }}</p>
         <p>Indice d'UV maximum : {{ weather['daily']['uv_index_max'][i] }}</p>

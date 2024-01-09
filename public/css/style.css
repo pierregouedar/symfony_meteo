@@ -1,0 +1,17 @@
+body{
+    background-color: #332F61 !important;
+    color : white !important;
+}
+.navbar{
+    border: solid 2px white;
+    border-radius: 6px;
+}
+.navbar-brand {
+    color: white !important;
+}
+.nav-link{
+    color: white !important;
+}
+.material-symbols-outlined{
+    font-size: 200px !important;
+}
