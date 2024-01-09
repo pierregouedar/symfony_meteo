@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Address;
 use App\Repository\AddressRepository;
+use App\WMOInterpretor;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,15 +24,20 @@ class AddressController extends AbstractController
             $get = $request->query->get('search');
         }
         if ($get != ''){
-            $AddressHttpClient = HttpClient::create();
-            $AddressResponse = $AddressHttpClient->request('GET', "https://api-adresse.data.gouv.fr/search/?q={$get}");
-            $AddressContent= $AddressResponse->toArray();
-            dump($AddressContent);
-            return $this->render('address/index.html.twig', [
-                'search' => $get,
-                'addresses' => $AddressContent,
-            ]);
+            if(strlen($get)>=3){
+                $AddressHttpClient = HttpClient::create();
+                $AddressResponse = $AddressHttpClient->request('GET', "https://api-adresse.data.gouv.fr/search/?q={$get}");
+                $AddressContent= $AddressResponse->toArray();
+                return $this->render('address/index.html.twig', [
+                    'search' => $get,
+                    'addresses' => $AddressContent,
+                ]);
+            }
+            else{
+                return $this->redirectToRoute("app_home_index");
+            }
         }
+
     }
     #[Route('/address/add')]
     public function add(Request $request, EntityManagerInterface $entityManager): Response

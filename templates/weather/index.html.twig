@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello WeatherController!{% endblock %}
+{% block title %}Prévisions météo{% endblock %}
 
 {% block body %}
     {% include 'weather/_currentWeather.html.twig' with {latitude:weather['latitude'],longitude:weather['longitude'], currentWeatherContent:weather, weatherDescription:currentWeatherDescription}%}

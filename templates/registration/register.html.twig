@@ -2,21 +2,29 @@
 
 {% form_theme registrationForm 'bootstrap_5_layout.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <h1 class="text-center">Inscrivez-vous</h1>
+
+    {% if app.user %}
+        <div class="mb-3">
+            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.firstName) }}
-        {{ form_row(registrationForm.lastName) }}
-        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.firstName, {label:'Prénom'}) }}
+        {{ form_row(registrationForm.lastName, {label:'Nom de famille'}) }}
+        {{ form_row(registrationForm.email, {label:'E-mail'}) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: 'Mot de passe'
         }) }}
 
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary w-100 mt-3">S'inscrire</button>
     {{ form_end(registrationForm) }}
+    <h4 class="text-center">Ou si vous avez déjà un compte, <a href="{{ path('app_login') }}">connectez-vous !</a></h4>
 {% endblock %}

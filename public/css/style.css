@@ -5,6 +5,7 @@ body{
 .navbar{
     border: solid 2px white;
     border-radius: 6px;
+    background-color: #252247 !important;
 }
 .navbar-brand {
     color: white !important;
@@ -13,5 +14,5 @@ body{
     color: white !important;
 }
 .material-symbols-outlined{
-    font-size: 200px !important;
+    font-size: 160px !important;
 }

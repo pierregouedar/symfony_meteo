@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Résultat de la recherche{% endblock %}
-
 {% block body %}
-    <h2>Liste des résultats pour la recherche : "{{ search }}"</h2>
+    <h2 class="text-center p-3">Liste des résultats pour la recherche : "{{ search }}"</h2>
     {{ include('address/_addressFromRequest.html.twig') }}
 {% endblock %}

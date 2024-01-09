@@ -1,5 +1,6 @@
+<div class="container d-flex flex-wrap justify-content-center">
 {% for address in addresses["features"] %}
-    <div class="card" style="width: fit-content;">
+    <div class="card m-3" style="width: fit-content;">
         <div class="card-body">
             <h5 class="card-title">{{ address["properties"]["type"]|trans}} : {{ address["properties"]["label"] }}</h5>
             <p class="card-text">Voici quelques informations supplémentaire sur cet emplacement :</p>
@@ -12,7 +13,8 @@
         </ul>
         <div class="card-body">
             <a href="{{ path('app_address_add', {address:address}) }}" class="btn btn-primary card-link">Ajoutez aux emplacements favoris</a>
-            <a href="#" class="btn btn-primary card-link">Consultez la météo</a>
+            <a href="{{ path('app_weather_index', {id:0, address:address}) }}" class="btn btn-primary card-link">Consultez la météo</a>
         </div>
     </div>
 {% endfor %}
+</div>
