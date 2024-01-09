@@ -10,7 +10,7 @@
         </div>
     {% elseif not is_granted('IS_AUTHENTICATED_FULLY')%}
     <div class="text-center">
-        <h2>Vous souhaitez consulter la météo d'autres emplacement ?</h2>
+        <h2>Vous souhaitez consulter la météo d'autres emplacements ?</h2>
         <a class="btn btn-primary" href="{{ path('app_login') }}">Connectez-vous</a>
         ou
         <a class="btn btn-primary" href="{{ path('app_register') }}">Inscrivez-vous</a>
