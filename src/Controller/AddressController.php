@@ -6,18 +6,35 @@ use App\Entity\Address;
 use App\Repository\AddressRepository;
 use App\WMOInterpretor;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
+/**
+ * Restriction de navigabilité ici, car toutes les actions du contrôleur sont qu'accessibles par des utilisateurs authentifiés.
+ */
 #[IsGranted('ROLE_ADMIN')]
 class AddressController extends AbstractController
 {
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @throws ClientExceptionInterface
+     * @throws DecodingExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws TransportExceptionInterface
+     * Cette action permet à partir de paramètres passés dans la requête HTTP depuis la barre de recherche d'afficher tous les emplacements qui peuvent correspondre grâce à l'API https://adresse.data.gouv.fr/.
+     */
     #[Route('/address/find')]
     public function find(Request $request): Response
     {
@@ -41,6 +58,13 @@ class AddressController extends AbstractController
         }
 
     }
+
+    /**
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     * Cette action permet d'ajouter un emplacement retourné par l'API https://adresse.data.gouv.fr/ dans la address de la base de données.
+     */
     #[Route('/address/add')]
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -63,12 +87,23 @@ class AddressController extends AbstractController
         return $this->render('address/show.html.twig', ['addresses'=>$this->getUser()->getAddresses()]); // à changer
     }
 
+    /**
+     * @return Response
+     * Cette action permet d'afficher toutes les adresses favorites de l'utilisateur connecté.
+     */
     #[Route('/address')]
     public function show():Response{
         $addresses = $this->getUser()->getAddresses();
         return $this->render('address/show.html.twig', ['addresses' => $addresses]);
     }
 
+    /**
+     * @param $id
+     * @param AddressRepository $addressRepository
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     * Cette action permet de supprimer une adresse favorites parmis celle de l'utilisateur connecté.
+     */
     #[Route('/address/{id}/remove', requirements: ['id' => '\d+'])]
     public function remove($id, AddressRepository $addressRepository, EntityManagerInterface $entityManager): Response
     {

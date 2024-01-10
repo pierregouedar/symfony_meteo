@@ -11,10 +11,31 @@ use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
+/**
+ * Restriction de navigabilité ici, car toutes les actions du contrôleur sont qu'accessibles par des utilisateurs authentifiés.
+ */
 #[IsGranted('ROLE_ADMIN')]
 class WeatherController extends AbstractController
 {
+    /**
+     * @param int $id
+     * @param AddressRepository $addressRepository
+     * @param EntityManagerInterface $entityManager
+     * @param Request $request
+     * @return Response
+     * @throws ClientExceptionInterface
+     * @throws DecodingExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws TransportExceptionInterface
+     * Cette action permet d'afficher la météo instantanée et les prévisions sur 7 jours d'une adresse, qu'elle soit déjà en favoris chez l'utilisateur connecté ou non (Si l'utilisateur choisi de consulter la météo au moment de la recherche).
+     */
     #[Route('/weather/{id}', requirements: ['id' => '\d+'])]
     public function index(int $id, AddressRepository $addressRepository, EntityManagerInterface $entityManager, Request $request): Response
     {

@@ -8,20 +8,18 @@ use Doctrine\Persistence\ObjectManager;
 
 class UserFixtures extends Fixture
 {
+    /**
+     * @param ObjectManager $manager
+     * @return void
+     * Cette fixture permet de créer un utilisateur automatiquement.
+     */
     public function load(ObjectManager $manager): void
     {
-        UserFactory::createOne([
-            'firstname' => 'Tony',
-            'lastname' => 'Stark',
-            'email' => 'root@example.com',
-            'roles' => ['ROLE_ADMIN'],
-        ]);
         UserFactory::createOne([
             'firstname' => 'Peter',
             'lastname' => 'Parker',
             'email' => 'user@example.com',
             'roles' => ['ROLE_USER'],
         ]);
-        UserFactory::createMany(10);
     }
 }

@@ -4,7 +4,11 @@ namespace App;
 
 class WMOInterpretor
 {
-    #Permet d'obtenir une description de la météo à partir du code WMO retourné par l'API
+    /**
+     * @param $code
+     * @return string
+     * Cette méthode permet d'obtenir une description de la météo à partir du code WMO retourné par l'API https://open-meteo.com/.
+     */
     public static function getDescription($code) {
         $descriptions = [
             0 => "Ciel dégagé",
@@ -40,6 +44,11 @@ class WMOInterpretor
         return $descriptions[$code];
     }
 
+    /**
+     * @param $code
+     * @return string
+     * Cette méthode permet d'obtenir une icône Google Material de la météo à partir du code WMO retourné par l'API https://open-meteo.com/.
+     */
     public static function getIcon($code){
         $descriptions = [
             0 => '<span class="material-symbols-outlined">sunny</span>',
