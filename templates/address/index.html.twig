@@ -3,5 +3,11 @@
 {% block title %}Résultat de la recherche{% endblock %}
 {% block body %}
     <h2 class="text-center p-3">Liste des résultats pour la recherche : "{{ search }}"</h2>
+    <div class="d-flex justify-content-center mt-3">
+        <form class="d-flex w-75" role="search" action="{{ path('app_address_find') }}">
+            <input class="form-control me-2" name="search" value="{{ search|default('') }}" type="search" placeholder="Rechercher une adresse, ville, aéroport..." aria-label="Search">
+            <button class="btn btn-success" type="submit">Rechercher</button>
+        </form>
+    </div>
     {{ include('address/_addressFromRequest.html.twig') }}
 {% endblock %}
