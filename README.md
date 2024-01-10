@@ -10,7 +10,7 @@
 - [Description de la réalisation du projet](#description-de-la-réalisation-du-projet)
 - [Réalisations annexes](#réalisations-annexes)
   
-  - [MCD](#mcd-)
+  - [MCD](#mcd)
   - [UC](#diagramme-de-cas-dutilisation-use-case)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
@@ -33,7 +33,7 @@
 
 ## Réalisations annexes
 
-### MCD 
+### MCD
 
 ![](MCD_UC/MCD_Meteo.png)
 
