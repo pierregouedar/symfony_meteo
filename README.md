@@ -5,6 +5,15 @@
 
 - [Pierre Gouedar](https://www.github.com/pierregouedar)
 
+## Sommaire 
+
+- [Description de la réalisation du projet](#description-de-la-réalisation-du-projet)
+- [Réalisations annexes](#réalisations-annexes)
+  
+  - [MCD](#mcd-)
+  - [UC](#diagramme-de-cas-dutilisation-use-case)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
 
 ## Description de la réalisation du projet
 
@@ -21,6 +30,17 @@
 - Difficultés rencontrées :
 
     - Problème de conflits entre les versions des composants symfony installés
+
+## Réalisations annexes
+
+### MCD 
+
+![](MCD_UC/MCD_Meteo.png)
+
+### Diagramme de cas d'utilisation (use-case)
+
+![](MCD_UC/UC_Meteo.png)
+
 ## Installation
 
 - Avant d'installer ce projet, veuillez créer une copie du fichier `.env` en `.env.local` et configurer une base de données MySQL dans ce fichier en éditant la ligne : `DATABASE_URL="mysql://!user!:!password!@!IP!:3306/!DB_Name!?serverVersion=mariadb-10.2.25" `
