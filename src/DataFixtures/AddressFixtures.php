@@ -21,9 +21,7 @@ class AddressFixtures extends Fixture
             'longitude'=>4.365717,
             'city'=>"Châlons-en-Champagne",
             'postcode'=>51000,
-            'housenumber'=>"2b",
-            'street'=>"Rue de Jessaint",
-            'type'=>"housenumber",
+            'type'=>"municipality",
             'user'=>UserFactory::createOne([
                 'firstname' => 'Tony',
                 'lastname' => 'Stark',

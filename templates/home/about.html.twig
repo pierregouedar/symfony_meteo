@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center mt-3">À Propos de MétéoExpress</h1>
+    <section class="mt-3 w-50">
+        <h2>Description de l'application</h2>
+        <p>MétéoExpress est une application web développé en PHP avec le Framework Symfony vous permettant d'obtenir des informations météorologique sur les emplacements de vos choix.</p>
+    </section>
+
+    <section class="w-50 mt-4">
+        <h2>Sources de données</h2>
+        <p>Nous utilisons les APIs suivantes pour fournir des prévisions météorologiques précises :</p>
+        <ul>
+            <li><a href="https://adresse.data.gouv.fr/" class="btn btn-outline-light" target="_blank">API Adresse Data Gouv</a></li>
+            <li><a href="https://open-meteo.com/" class="btn btn-outline-light" target="_blank">API Open Meteo</a></li>
+        </ul>
+    </section>
+
+    <section class="w-50 mt-4">
+        <h2>Contact</h2>
+        <p>Pour toute question ou préoccupation, n'hésitez pas à nous contacter :</p>
+        <p>Email : <a href="mailto:p.gouedar@gmail.com">p.gouedar@gmail.com</a></p>
+    </section>
+
+    <footer>
+        <p>Merci de choisir notre application météo. Nous sommes déterminés à vous fournir des informations météorologiques fiables et précises.</p>
+    </footer>
+
+{% endblock %}
+

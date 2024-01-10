@@ -56,7 +56,7 @@ class AddressController extends AbstractController
                 return $this->redirectToRoute("app_home_index");
             }
         }
-
+        return $this->redirectToRoute("app_home_index");
     }
 
     /**

@@ -16,10 +16,10 @@
         {{ forecastWeatherIcon[i]|raw }}
         <p>{{ forecastWeatherDescriptions[i] }}</p>
 
-        <p>Heure du levé de soleil : {{ weather['daily']['sunrise'][i]|date_modify("+1 hour")|date('H:i', '+01:00') }}</p>
-        <p>Heure du couché de soleil : {{ weather['daily']['sunset'][i]|date_modify("+1 hour")|date('H:i', '+01:00') }}</p>
+        <p>Heure du lever de soleil : {{ weather['daily']['sunrise'][i]|date_modify("+1 hour")|date('H:i', '+01:00') }}</p>
+        <p>Heure du coucher de soleil : {{ weather['daily']['sunset'][i]|date_modify("+1 hour")|date('H:i', '+01:00') }}</p>
         <p>Indice d'UV maximum : {{ weather['daily']['uv_index_max'][i] }}</p>
-        <p>Nombre d'heure de précipitations : {{ weather['daily']['precipitation_hours'][i]}}{{ weather['daily_units']['precipitation_hours'] }}</p>
+        <p>Nombre d'heures de précipitations : {{ weather['daily']['precipitation_hours'][i]}}{{ weather['daily_units']['precipitation_hours'] }}</p>
         <p>Probabilité de précipitations sur la journée : {{ weather['daily']['precipitation_probability_max'][i]}}{{ weather['daily_units']['precipitation_probability_max'] }}</p>
         <p>Vitesse maximale du vent : {{ weather['daily']['wind_speed_10m_max'][i]}}{{ weather['daily_units']['wind_speed_10m_max'] }}</p>
         <p>Orientation globale du vent : {{ weather['daily']['wind_direction_10m_dominant'][i]}}{{ weather['daily_units']['wind_direction_10m_dominant'] }}</p>

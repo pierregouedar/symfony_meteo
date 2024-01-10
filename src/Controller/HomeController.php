@@ -35,4 +35,13 @@ class HomeController extends AbstractController
         $weatherIcon = WMOInterpretor::getIcon($currentWeatherContent['current']['weather_code']);
         return $this->render('home/index.html.twig', ['latitude'=>$coord[0], 'longitude'=>$coord[1], 'currentWeatherContent' => $currentWeatherContent, 'weatherDescription'=>$weatherDescription, 'weatherIcon'=>$weatherIcon]);
     }
+
+    /**
+     * @return Response
+     * Cette action permet d'afficher la page "à propos".
+     */
+    #[Route("/about")]
+    public function about():Response{
+        return $this->render('home/about.html.twig');
+    }
 }
