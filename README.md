@@ -21,6 +21,7 @@
 
     - EasyAdmin
     - Foundry
+    - Codeception
 
 - Outils utilisés :
 
@@ -29,7 +30,8 @@
 
 - Difficultés rencontrées :
 
-    - Problème de conflits entre les versions des composants symfony installés
+    - Problèmes de conflits entre les versions des composants symfony installés.
+    - Difficultés au niveau de la configuration de codeception.
 
 ## Réalisations annexes
 
@@ -58,14 +60,19 @@ Pour initialiser automatiquement votre base de données, exécutez la commande s
     composer db
 ```
 
-Ensuite pour lancer le projet, exécutez la commande suivante :
+Ensuite, pour lancer le projet, exécutez la commande suivante :
 ```bash
     symfony serve
 ```
 ## Utilisation
 
-Lors de l'initialisation de la base de données deux comptes utilisateur sont créé :
+Après l'installation de ce projet, vous pouvez utiliser des tests fonctionnels pour vérifier le bon fonctionnement des différents contrôleurs. 
+Vous pouvez utiliser la commande suivante pour tous les exécuter : 
+```bash
+  composer test:codeception
+```
 
+Lors de l'initialisation de la base de données, deux comptes utilisateur sont créés :
 
 - E-mail : root@example.com
 - Mot de passe : default

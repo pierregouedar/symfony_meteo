@@ -91,6 +91,13 @@
             "php bin/console doctrine:database:create",
             "php bin/console doctrine:migrations:migrate --no-interaction",
             "php bin/console doctrine:fixtures:load --no-interaction"
+        ],
+        "test:codeception": [
+            "php vendor/bin/codecept clean",
+            "php bin/console doctrine:database:drop --force --quiet --env=test",
+            "php bin/console doctrine:database:create --quiet --env=test",
+            "php bin/console doctrine:schema:create --quiet --env=test",
+            "php vendor/bin/codecept run"
         ]
     },
     "conflict": {
@@ -103,6 +110,10 @@
         }
     },
     "require-dev": {
+        "codeception/codeception": "^5.0",
+        "codeception/module-asserts": "^3.0",
+        "codeception/module-doctrine2": "^3.0",
+        "codeception/module-symfony": "^3.2",
         "doctrine/doctrine-fixtures-bundle": "^3.5",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "5.4.*",
