@@ -24,11 +24,11 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            EmailField::new('email'),
-            TextField::new('lastname'),
-            TextField::new('firstname'),
-            ArrayField::new('roles')
+            IdField::new('id',)->hideOnForm(),
+            EmailField::new('email', 'E-mail'),
+            TextField::new('lastname', 'Nom de famille'),
+            TextField::new('firstname', 'Prénom'),
+            ArrayField::new('roles', 'Rôles')
                 ->formatValue(function ($value) {
                     if ('' != $value[0]) {
                         if ('ROLE_ADMIN' == $value[0]) {

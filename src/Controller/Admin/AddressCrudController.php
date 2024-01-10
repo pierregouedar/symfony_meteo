@@ -26,12 +26,12 @@ class AddressCrudController extends AbstractCrudController
         return [
             NumberField::new('Latitude'),
             NumberField::new('Longitude'),
-            TextField::new('city'),
-            NumberField::new('postcode'),
-            NumberField::new('housenumber'),
-            TextField::new('street'),
-            ChoiceField::new('type')->setChoices(['Rue'=>'street','Numéro de maison'=>'housenumber','Ville'=>'municipality', 'locality'=>'Lieu-dit']),
-            AssociationField::new('user')
+            TextField::new('city', 'Ville'),
+            NumberField::new('postcode', 'Code postal'),
+            NumberField::new('housenumber', 'N° de maison'),
+            TextField::new('street', 'Rue'),
+            ChoiceField::new('type', 'Type')->setChoices(['Rue'=>'street','Numéro de maison'=>'housenumber','Ville'=>'municipality', 'locality'=>'Lieu-dit']),
+            AssociationField::new('user', 'Utilisateur')
                 ->setCrudController(UserCrudController::class)
                 ->formatValue(function ($entity) {
                     if (null == !$entity) {
